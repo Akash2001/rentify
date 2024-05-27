@@ -15,3 +15,5 @@ const propertySchema = new mongoose.Schema({
         phoneNumber: String
     }
 });
+
+module.exports = propertySchema;

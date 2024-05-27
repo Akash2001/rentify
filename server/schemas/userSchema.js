@@ -9,3 +9,5 @@ const usersSchema = new mongoose.Schema({
     password: String,
     type: String,
 });
+
+module.exports = usersSchema;

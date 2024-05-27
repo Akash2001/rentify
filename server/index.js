@@ -8,6 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
+app.use(cors({
+    origin: 'https://rentify-frontend-rosy.vercel.app/'
+}));
 
 mongoose.connect(process.env.ATLAS_URI);
 
@@ -36,7 +39,6 @@ app.post('/signup', async (req, res) => {
 
 app.get('/properties/:id', async (req, res) => {
     const id = req.params.id;
-    console.log(id);
     const properties = await (id ? Property.find({"owner._id": id}) : Property.find());
     res.json(properties);
 });
