@@ -7,7 +7,7 @@ export const Seller = ({ user, setUser }) => {
     const [properties, setProperties] = useState([]);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND}/${user._id}`)
+        axios.get(`${process.env.REACT_APP_BACKEND}/properties/${user._id}`)
             .then(response => setProperties(response.data))
             .catch(error => console.error(error));
     }, []);
