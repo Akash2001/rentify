@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={user?._id ? (
-            user.type === "Seller" ? <Seller /> : <Buyer />
+            user.type === "Seller" ? <Seller user={user} setUser={setUser} /> : <Buyer user={user} setUser={setUser} />
           ) : <Login isLogin={true} setUser={setUser} />} />
           <Route path="/signup" element={<Login setUser={setUser} />} />
         </Routes>

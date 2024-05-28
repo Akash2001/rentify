@@ -22,7 +22,7 @@ export const LoginFormComponent = ({ isLogin, setUser }) => {
     const handleLogin = () => {
         console.log("Login");
         if (isLogin) {
-            axios.post('http://localhost:5000/login', { email: email, password: password })
+            axios.post(`${process.env.REACT_APP_BACKEND}/login`, { email: email, password: password })
                 .then(response => {
                     if (!response.data.success) {
                         alert("Invalid email or password");
@@ -35,7 +35,7 @@ export const LoginFormComponent = ({ isLogin, setUser }) => {
                 })
                 .catch(error => console.error(error));
         } else {
-            axios.post('http://localhost:5000/signup', {
+            axios.post(`${process.env.REACT_APP_BACKEND}/signup`, {
                 firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, type: profileType,
                 password: password,
             })

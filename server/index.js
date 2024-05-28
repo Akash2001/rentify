@@ -39,6 +39,6 @@ app.post('/signup', async (req, res) => {
 
 app.get('/properties/:id', async (req, res) => {
     const id = req.params.id;
-    const properties = await (id ? Property.find({"owner._id": id}) : Property.find());
+    const properties = await (id !== "all" ? Property.find({"owner._id": id}) : Property.find());
     res.json(properties);
 });

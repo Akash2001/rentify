@@ -11,7 +11,7 @@ export const PropertyComponent = ({ data, isSeller = false }) => {
             <div>No of bathrooms: {data.bathrooms}</div>
             <div>Nearby hospitals: {data.hospitalsNearby}</div>
             <div>Nearby colleges: {data.collegesNearby}</div>
-            {!isSeller ? (<></>) : (
+            {isSeller ? (<></>) : (
                 <button className="bg-blue-600 text-white p-1 mt-2 rounded-lg "onClick={()=> setShowOwner(!showOwner)}>
                     I'm interesetd
                 </button>
