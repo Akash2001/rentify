@@ -46,8 +46,13 @@ app.get('/properties/:id', async (req, res) => {
 });
 
 app.post('/properties/:id', async (req, res) => {
-    const id = req.params.id;
     const newProperty = new Property(req.body);
     await newProperty.save();
     res.json(newProperty);
+});
+
+app.delete('/properties/:id', async (req, res) => {
+    const id = req.params.id;
+    const result = await Property.deleteOne({_id: id});
+    res.json({success: result.deletedCount === 1 ? true : false});
 });

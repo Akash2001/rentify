@@ -92,7 +92,8 @@ export const Seller = ({ user, setUser }) => {
             <div className="grid grid-cols-3 gap-2 py-4">
                 {properties.map((property) => {
                     return (
-                        <PropertyComponent isSeller={true} data={property} />
+                        <PropertyComponent properties={properties} setProperties={setProperties}
+                            isSeller={true} data={property} />
                     )
                 })}
             </div>
