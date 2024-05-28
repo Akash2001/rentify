@@ -44,3 +44,10 @@ app.get('/properties/:id', async (req, res) => {
     const properties = await (id !== "all" ? Property.find({ "owner._id": id }) : Property.find());
     res.json(properties);
 });
+
+app.post('/properties/:id', async (req, res) => {
+    const id = req.params.id;
+    const newProperty = new Property(req.body);
+    await newProperty.save();
+    res.json(newProperty);
+});
